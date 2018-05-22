@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
-import {RecipeListPage} from "../../../../FullProject/src/pages/recipe-list/recipe-list";
-import {MyFavoriteRecipesPage} from "../../../../FullProject/src/pages/my-favorite-recipes/my-favorite-recipes";
-import {HomePage} from "../../../../FullProject/src/pages/home/home";
+import {RecipeListPage} from "../../../../SE380Remastered/src/pages/recipe-list/recipe-list";
+import {MyFavoriteRecipesPage} from "../../../../SE380Remastered/src/pages/my-favorite-recipes/my-favorite-recipes";
+import {HomePage} from "../../../../SE380Remastered/src/pages/home/home";
 
 @Component({
   templateUrl: 'tabs.html'
