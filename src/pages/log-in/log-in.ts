@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {SignUpPage} from "../sign-up/sign-up";
 import {ForgetPasswordPage} from "../forget-password/forget-password";
+import {TabsPage} from "../tabs/tabs";
 
 /**
  * Generated class for the LogInPage page.
@@ -30,6 +31,11 @@ export class LogInPage {
 
   navigateForgetPasswordPage(){
     this.navCtrl.push(ForgetPasswordPage);
+  }
+
+  navigateHomePage(){
+    //Authentication will add later!
+    this.navCtrl.push(TabsPage);
   }
 
 }
