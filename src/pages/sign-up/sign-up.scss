@@ -1,0 +1,25 @@
+page-sign-up {
+
+}
+
+.SignUpContentBox{
+  background-image: url("../assets/imgs/LoginSignUpFrogetPassWallpaper.jpg");
+  background-size: cover;
+  background-position: top;
+}
+
+.SignUpBody{
+  position: relative;
+  opacity: 0.75;
+}
+
+.SignUpCard{
+  position: absolute;
+}
+
+.SignUpTitle{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
