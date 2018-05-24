@@ -4,6 +4,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
+import { AngularFireModule } from "angularfire2";
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import {LogInPage} from "../pages/log-in/log-in";
@@ -12,6 +14,7 @@ import {ForgetPasswordPage} from "../pages/forget-password/forget-password";
 import {TabsPage} from "../pages/tabs/tabs";
 import {MyFavoriteRecipesPage} from "../pages/my-favorite-recipes/my-favorite-recipes";
 import {RecipeListPage} from "../pages/recipe-list/recipe-list";
+import { FIREBASER_CREDENTIALS } from "./firebase.credentials";
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import {RecipeListPage} from "../pages/recipe-list/recipe-list";
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    // Initialise AngularFire with credentials from the dashboard
+    AngularFireModule.initializeApp(FIREBASER_CREDENTIALS)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
