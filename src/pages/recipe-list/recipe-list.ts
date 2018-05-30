@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {AddRecipePage} from "../add-recipe/add-recipe";
 
 /**
  * Generated class for the RecipeListPage page.
@@ -20,6 +21,10 @@ export class RecipeListPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RecipeListPage');
+  }
+
+  navigateAddRecipe(){
+    this.navCtrl.push(AddRecipePage);
   }
 
 }

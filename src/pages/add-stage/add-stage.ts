@@ -21,5 +21,4 @@ export class AddStagePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddStagePage');
   }
-
 }

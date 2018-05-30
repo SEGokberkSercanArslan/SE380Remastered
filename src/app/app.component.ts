@@ -18,7 +18,7 @@ import {AddRecipePage} from "../pages/add-recipe/add-recipe";
 
 
 export class MyApp {
-  rootPage:any = AddRecipePage;
+  rootPage:any = LogInPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
