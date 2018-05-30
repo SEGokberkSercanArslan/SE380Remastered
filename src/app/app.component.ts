@@ -11,13 +11,14 @@ import {TabsPage} from "../pages/tabs/tabs";
 import {AddStagePage} from "../pages/add-stage/add-stage";
 import {MyFavoriteRecipesPage} from "../pages/my-favorite-recipes/my-favorite-recipes";
 import {RecipeListPage} from "../pages/recipe-list/recipe-list";
+import {AddRecipePage} from "../pages/add-recipe/add-recipe";
 @Component({
   templateUrl: 'app.html'
 })
 
 
 export class MyApp {
-  rootPage:any = RecipeListPage;
+  rootPage:any = AddRecipePage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
