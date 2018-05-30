@@ -12,6 +12,7 @@ import {ForgetPasswordPage} from "../pages/forget-password/forget-password";
 import {TabsPage} from "../pages/tabs/tabs";
 import {MyFavoriteRecipesPage} from "../pages/my-favorite-recipes/my-favorite-recipes";
 import {RecipeListPage} from "../pages/recipe-list/recipe-list";
+import {AddStagePage} from "../pages/add-stage/add-stage";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {RecipeListPage} from "../pages/recipe-list/recipe-list";
     ForgetPasswordPage,
     TabsPage,
     MyFavoriteRecipesPage,
-    RecipeListPage
+    RecipeListPage,
+    AddStagePage
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import {RecipeListPage} from "../pages/recipe-list/recipe-list";
     ForgetPasswordPage,
     TabsPage,
     MyFavoriteRecipesPage,
-    RecipeListPage
+    RecipeListPage,
+    AddStagePage
   ],
   providers: [
     StatusBar,
