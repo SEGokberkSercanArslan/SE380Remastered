@@ -13,6 +13,21 @@ import {TabsPage} from "../pages/tabs/tabs";
 import {MyFavoriteRecipesPage} from "../pages/my-favorite-recipes/my-favorite-recipes";
 import {RecipeListPage} from "../pages/recipe-list/recipe-list";
 
+import { FirebaseServiceProvider } from '../providers/firebase-service/firebase-service';
+import {AngularFireDatabaseModule} from "angularfire2/database";
+import {AngularFireModule} from "angularfire2";
+import {HttpModule} from "@angular/http";
+
+
+const FirebaseConfig = {
+  apiKey: "AIzaSyBmAdOSJiYTCRD9hyfHcQzPLLDiCepuEXQ",
+  authDomain: "se380-remastered.firebaseapp.com",
+  databaseURL: "https://se380-remastered.firebaseio.com",
+  projectId: "se380-remastered",
+  storageBucket: "se380-remastered.appspot.com",
+  messagingSenderId: "841160187923"
+};
+
 @NgModule({
   declarations: [
     MyApp,
@@ -26,6 +41,9 @@ import {RecipeListPage} from "../pages/recipe-list/recipe-list";
   ],
   imports: [
     BrowserModule,
+    HttpModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(FirebaseConfig),
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -42,7 +60,8 @@ import {RecipeListPage} from "../pages/recipe-list/recipe-list";
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    FirebaseServiceProvider
   ]
 })
 export class AppModule {}
