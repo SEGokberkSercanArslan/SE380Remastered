@@ -19,23 +19,15 @@
       <form action="">
         <ion-list>
           <ion-item>
-            <ion-label floating>Username</ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-label floating>Email Address</ion-label>
+            <ion-input type="text" [(ngModel)]="user.email" name="email"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>Password</ion-label>
-            <ion-input type="password"></ion-input>
+            <ion-input type="password" [(ngModel)]="user.password" name="password"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label floating>Re-Password</ion-label>
-            <ion-input type="password"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label floating>E-Mail</ion-label>
-            <ion-input type="email"></ion-input>
-          </ion-item>
-          <ion-item>
-            <button ion-button="" full>Sign Up</button>
+            <button ion-button (click)="navigateSignUpPage(user)" full>Sign Up</button>
           </ion-item>
         </ion-list>
       </form>

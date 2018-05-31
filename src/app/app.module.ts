@@ -14,6 +14,9 @@ import {MyFavoriteRecipesPage} from "../pages/my-favorite-recipes/my-favorite-re
 import {RecipeListPage} from "../pages/recipe-list/recipe-list";
 import {AddStagePage} from "../pages/add-stage/add-stage";
 import {AddRecipePage} from "../pages/add-recipe/add-recipe";
+import {AngularFireModule} from "angularfire2";
+import {FIREBASE_CONFIG} from "./app.firebase.config";
+import {AngularFireAuthModule} from "angularfire2/auth";
 
 @NgModule({
   declarations: [
@@ -30,7 +33,9 @@ import {AddRecipePage} from "../pages/add-recipe/add-recipe";
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
