@@ -30,10 +30,10 @@ export class RecipeListPage {
 
   navigateAddRecipe() {
     this.navCtrl.push(AddRecipePage);
-
+  }
     removeItem(id) {
       this.firebaseService.removeRecipeItem(id);
     }
 
   }
-}
+
