@@ -15,7 +15,7 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item-sliding *ngFor="let item of recipeItems | async">
+    <ion-item-sliding *ngFor="let item of (recipeItems | async)">
       <ion-item>
         {{ item.$value }}
       </ion-item>
