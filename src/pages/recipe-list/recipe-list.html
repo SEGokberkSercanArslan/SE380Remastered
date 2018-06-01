@@ -14,14 +14,20 @@
 
 
 <ion-content padding>
-  <body>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of recipeItems | async">
+      <ion-item>
+        {{ item.$value }}
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="danger" icon-only (click)="removeItem(item.$key)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 
-  </body>
   <ion-fab bottom right #fab>
-    <button ion-fab><ion-icon name="ios-arrow-dropup"></ion-icon></button>
-    <ion-fab-list side="top">
-      <button ion-fab (click)="navigateAddRecipe()"><ion-icon name="ios-add-circle-outline"></ion-icon></button>
-      <button ion-fab><ion-icon name="ios-trash-outline"></ion-icon></button>
-    </ion-fab-list>
+    <button ion-fab (click)="navigateAddRecipe()"><ion-icon name="md-add"></ion-icon></button>
   </ion-fab>
 </ion-content>

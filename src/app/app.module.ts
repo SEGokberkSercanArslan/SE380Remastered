@@ -17,6 +17,9 @@ import {AddRecipePage} from "../pages/add-recipe/add-recipe";
 import {AngularFireModule} from "angularfire2";
 import {FIREBASE_CONFIG} from "./app.firebase.config";
 import {AngularFireAuthModule} from "angularfire2/auth";
+import { FirebaseServiceProvider } from '../providers/firebase-service/firebase-service';
+import {AngularFireDatabaseModule} from "angularfire2/database";
+import {HttpModule} from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -34,6 +37,8 @@ import {AngularFireAuthModule} from "angularfire2/auth";
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpModule,
+    AngularFireDatabaseModule,
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireAuthModule
   ],
@@ -53,7 +58,8 @@ import {AngularFireAuthModule} from "angularfire2/auth";
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    FirebaseServiceProvider
   ]
 })
 export class AppModule {}
