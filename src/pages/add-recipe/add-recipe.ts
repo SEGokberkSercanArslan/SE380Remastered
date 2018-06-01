@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {AddStagePage} from "../add-stage/add-stage";
 import {FirebaseServiceProvider} from "../../providers/firebase-service/firebase-service";
-import {FirebaseListObservable} from "angularfire2/database";
+import {FirebaseListObservable} from "angularfire2/database-deprecated";
 
 /**
  * Generated class for the AddRecipePage page.
