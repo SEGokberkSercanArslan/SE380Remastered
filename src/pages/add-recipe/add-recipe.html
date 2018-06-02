@@ -15,18 +15,19 @@
 
 <ion-content padding>
   <body>
-    <ion-card>
-      <!--We should add stages under the recipe-->
-      <ion-list>
-        <ion-item>
-          <ion-label floating>Recipe Name</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
-        <ion-item>
-          <button ion-button full>Save</button>
-        </ion-item>
-      </ion-list>
-    </ion-card>
+    <form #f="ngForm"> <!--(ngSubmit) i yazmayı unutma-->
+      <ion-card>
+        <ion-list>
+          <ion-item>
+            <ion-label floating>Recipe Name</ion-label>
+            <ion-input type="text" ngModel name="recipeName" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <button ion-button full type="submit" [disabled]="!f.valid">Save</button>
+          </ion-item>
+        </ion-list>
+      </ion-card>
+    </form>
   </body>
   <ion-fab bottom right #fab>
     <button ion-fab><ion-icon name="ios-arrow-dropup"></ion-icon></button>
