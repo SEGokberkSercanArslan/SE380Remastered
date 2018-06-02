@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {FirebaseServiceProvider} from "../../providers/firebase-service/firebase-service";
 import {FirebaseListObservable} from "angularfire2/database-deprecated";
+import { FirebaseProvider } from './../../providers/firebase/firebase';
 import {AngularFireDatabase, AngularFireList} from "angularfire2/database";
 import {AddRecipePage} from "../add-recipe/add-recipe";
 
@@ -19,10 +19,11 @@ import {AddRecipePage} from "../add-recipe/add-recipe";
   templateUrl: 'recipe-list.html',
 })
 export class RecipeListPage {
-  recipeItems: AngularFireList<any>;
+  recipeItems: FirebaseListObservable<any>;
+  newItem = '';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public firebaseService: FirebaseServiceProvider) {
-    this.recipeItems = this.firebaseService.getRecipeItems();
+  constructor(public navCtrl: NavController, public navParams: NavParams, public firebaseProvider: FirebaseProvider) {
+    this.recipeItems = this.firebaseProvider.getRecipeItems();
   }
 
   ionViewDidLoad() {
@@ -32,8 +33,12 @@ export class RecipeListPage {
   navigateAddRecipe() {
     this.navCtrl.push(AddRecipePage);
   }
+
+  addItem() {
+    this.firebaseProvider.addItem(this.newItem);
+  }
     removeItem(id) {
-      this.firebaseService.removeRecipeItem(id);
+      this.firebaseProvider.removeItem(id);
     }
 
   }

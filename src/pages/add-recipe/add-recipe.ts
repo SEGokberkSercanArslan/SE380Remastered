@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {AddStagePage} from "../add-stage/add-stage";
-import {FirebaseServiceProvider} from "../../providers/firebase-service/firebase-service";
 import {FirebaseListObservable} from "angularfire2/database-deprecated";
 
 /**
@@ -17,9 +16,7 @@ import {FirebaseListObservable} from "angularfire2/database-deprecated";
   templateUrl: 'add-recipe.html',
 })
 export class AddRecipePage {
-  recipeItems: FirebaseListObservable<any[]>;
-  newItem = '';
-  constructor(public navCtrl: NavController, public navParams: NavParams,public firebaseService: FirebaseServiceProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -30,8 +27,5 @@ export class AddRecipePage {
     this.navCtrl.push(AddStagePage);
   }
 
-  addItem() {
-    this.firebaseService.addRecipeItem(this.newItem);
-  }
 
 }
