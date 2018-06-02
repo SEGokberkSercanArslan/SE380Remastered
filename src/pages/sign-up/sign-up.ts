@@ -1,8 +1,14 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {User} from "../../models/user";
-import {AngularFireAuth} from "angularfire2/auth";
+import {AlertController, IonicPage, LoadingController, NavController, NavParams} from 'ionic-angular';
+import {AuthService} from "../../Service/auth";
+import {NgForm} from "@angular/forms";
 
+/**
+ * Generated class for the SignUpPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
 @IonicPage()
 @Component({
@@ -11,25 +17,32 @@ import {AngularFireAuth} from "angularfire2/auth";
 })
 export class SignUpPage {
 
-  user = {} as User;
+  constructor(public navCtrl: NavController,
+              private authService:AuthService,
+              private loadingCtrl:LoadingController,
+              private alertCtrl:AlertController) {
 
-  constructor(private afAuth: AngularFireAuth,
+  }
 
-    public navCtrl: NavController, public navParams: NavParams) {
+  onSignUp(form: NgForm){
+    const loading = this.loadingCtrl.create({
+      content:"Signing You Up ..."
+    });
+    loading.present();
+    this.authService.signUp(form.value.email,form.value.password)
+      .then(data => {loading.dismiss();})
+      .catch(error => {loading.dismiss();
+      const alert = this.alertCtrl.create({
+        title:"Sign Up Failed",
+        message: error.message,
+        buttons:["Understand"]
+      });
+      alert.present();
+      });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignUpPage');
-  }
-
-  async navigateSignUpPage(user: User) {
-    try {
-      const result = await this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
-      console.log(result);
-    }
-    catch (e) {
-      console.error(e);
-    }
   }
 
 }

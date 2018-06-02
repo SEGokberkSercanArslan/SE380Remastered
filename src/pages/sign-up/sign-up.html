@@ -16,18 +16,18 @@
 <ion-content class="SignUpContentBox" padding>
   <body class="SignUpBody">
     <ion-card class="SignUpCard">
-      <form action="">
+      <form #f="ngForm" (ngSubmit)="onSignUp(f)">
         <ion-list>
           <ion-item>
-            <ion-label floating>Email Address</ion-label>
-            <ion-input type="text" [(ngModel)]="user.email" name="email"></ion-input>
+            <ion-label floating>E-Mail</ion-label>
+            <ion-input type="email" ngModel name="email" required></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>Password</ion-label>
-            <ion-input type="password" [(ngModel)]="user.password" name="password"></ion-input>
+            <ion-input type="password" ngModel name="password" [minlength]="6" required></ion-input>
           </ion-item>
           <ion-item>
-            <button ion-button (click)="navigateSignUpPage(user)" full>Sign Up</button>
+            <button ion-button="" type="submit" [disabled]="!f.valid" full>Sign Up</button>
           </ion-item>
         </ion-list>
       </form>

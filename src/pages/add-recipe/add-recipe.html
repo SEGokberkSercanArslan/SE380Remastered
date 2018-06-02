@@ -17,14 +17,15 @@
   <body>
     <ion-card>
       <!--We should add stages under the recipe-->
-        <ion-col col-9>
-          <ion-item>
-            <ion-input type="text" [(ngModel)]="newItem" placeholder="Write a Recipe Name "></ion-input>
-          </ion-item>
-        </ion-col>
-        <ion-col>
-          <button ion-button (click)="addItem()">Add</button>
-        </ion-col>
+      <ion-list>
+        <ion-item>
+          <ion-label floating>Recipe Name</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <button ion-button full>Save</button>
+        </ion-item>
+      </ion-list>
     </ion-card>
   </body>
   <ion-fab bottom right #fab>

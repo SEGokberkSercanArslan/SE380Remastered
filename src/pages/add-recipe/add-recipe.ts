@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {AddStagePage} from "../add-stage/add-stage";
-import {FirebaseListObservable} from "angularfire2/database-deprecated";
 
 /**
  * Generated class for the AddRecipePage page.
@@ -16,6 +15,7 @@ import {FirebaseListObservable} from "angularfire2/database-deprecated";
   templateUrl: 'add-recipe.html',
 })
 export class AddRecipePage {
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -26,6 +26,5 @@ export class AddRecipePage {
   navigateAddStage(){
     this.navCtrl.push(AddStagePage);
   }
-
 
 }

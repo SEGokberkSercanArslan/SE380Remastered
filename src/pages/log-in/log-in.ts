@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {AlertController, IonicPage, LoadingController, NavController, NavParams} from 'ionic-angular';
 import {SignUpPage} from "../sign-up/sign-up";
 import {ForgetPasswordPage} from "../forget-password/forget-password";
 import {TabsPage} from "../tabs/tabs";
-import {User} from "../../models/user";
-import {AngularFireAuth} from "angularfire2/auth";
+import {AuthService} from "../../Service/auth";
+import {NgForm} from "@angular/forms";
 
 /**
  * Generated class for the LogInPage page.
@@ -20,11 +20,10 @@ import {AngularFireAuth} from "angularfire2/auth";
 })
 export class LogInPage {
 
-  user = {} as User;
-
-  constructor(private afAuth: AngularFireAuth,
-
-    public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+              private authService:AuthService,
+              private loadingCtrl:LoadingController,
+              private alertCtrl:AlertController) {
   }
 
   ionViewDidLoad() {
@@ -39,21 +38,21 @@ export class LogInPage {
     this.navCtrl.push(ForgetPasswordPage);
   }
 
-  navigateHomePage(){
-    //Authentication will add later!
-    this.navCtrl.push(TabsPage);
-  }
-
-  async login(user: User) {
-    try {
-      const result = this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
-      if(result){
-        this.navCtrl.setRoot(TabsPage);
-      }
-    }
-    catch (e) {
-      console.error(e);
-    }
+  onSignin(form:NgForm){
+    const loading = this.loadingCtrl.create({
+      content:"Signing you in ..."
+    });
+    loading.present();
+    this.authService.signin(form.value.email,form.value.password)
+      .then(data => {loading.dismiss();})
+      .catch( error => {loading.dismiss();
+      const alert = this.alertCtrl.create({
+        title:"Sign In Failed",
+        message:error.message,
+        buttons:["Understand"]
+      });
+      alert.present();
+      });
   }
 
 }

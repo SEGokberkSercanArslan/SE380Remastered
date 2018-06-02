@@ -14,21 +14,7 @@ import {MyFavoriteRecipesPage} from "../pages/my-favorite-recipes/my-favorite-re
 import {RecipeListPage} from "../pages/recipe-list/recipe-list";
 import {AddStagePage} from "../pages/add-stage/add-stage";
 import {AddRecipePage} from "../pages/add-recipe/add-recipe";
-import {AngularFireAuthModule} from "angularfire2/auth";
-import {HttpClientModule} from "@angular/common/http";
-import { AngularFireDatabaseModule } from 'angularfire2/database-deprecated';
-import { AngularFireDatabase } from 'angularfire2/database';
-import { AngularFireModule } from 'angularfire2';
-import { FirebaseProvider } from '../providers/firebase/firebase';
-
-const firebaseConfig = {
-  apiKey: "AIzaSyBmAdOSJiYTCRD9hyfHcQzPLLDiCepuEXQ",
-  authDomain: "se380-remastered.firebaseapp.com",
-  databaseURL: "https://se380-remastered.firebaseio.com",
-  projectId: "se380-remastered",
-  storageBucket: "se380-remastered.appspot.com",
-  messagingSenderId: "841160187923"
-};
+import {AuthService} from "../Service/auth";
 
 @NgModule({
   declarations: [
@@ -45,12 +31,7 @@ const firebaseConfig = {
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
-    HttpClientModule,
-    AngularFireDatabaseModule,
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule,
-
+    IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -68,10 +49,8 @@ const firebaseConfig = {
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    FirebaseProvider,
-    AngularFireDatabase
-
+    AuthService,
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}

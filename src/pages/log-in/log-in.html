@@ -17,21 +17,21 @@
 
   <body class="LoginBody">
   <ion-card class="LoginCardContent">
-    <form>
+    <form #f="ngForm" (ngSubmit)="onSignin(f)">
       <ion-list>
         <ion-item>
           <ion-label id="cookorganizer"><b>Cook Organizer App</b></ion-label>
         </ion-item>
         <ion-item>
-          <ion-label floating>Email Address</ion-label>
-          <ion-input type="text" [(ngModel)]="user.email" name="email"></ion-input>
+          <ion-label floating>E-Mail</ion-label>
+          <ion-input type="text" ngModel name="email" required></ion-input>
         </ion-item>
         <ion-item>
           <ion-label floating>Password</ion-label>
-          <ion-input type="password" [(ngModel)]="user.password" name="password"></ion-input>
+          <ion-input type="password" ngModel name="password" [minlength]="6" required></ion-input>
         </ion-item>
         <ion-item>
-          <button ion-button full id="login" (click)="login(user)">Log In</button>
+          <button ion-button="" type="submit" [disabled]="!f.valid" full>Log In</button>
           <button ion-button="" full id="forgetpassword" (click)="navigateForgetPasswordPage()">Forget Password?</button>
         </ion-item>
         <ion-item>

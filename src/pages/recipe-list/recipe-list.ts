@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {FirebaseListObservable} from "angularfire2/database-deprecated";
-import { FirebaseProvider } from './../../providers/firebase/firebase';
-import {AngularFireDatabase, AngularFireList} from "angularfire2/database";
 import {AddRecipePage} from "../add-recipe/add-recipe";
-
 
 /**
  * Generated class for the RecipeListPage page.
@@ -19,27 +15,16 @@ import {AddRecipePage} from "../add-recipe/add-recipe";
   templateUrl: 'recipe-list.html',
 })
 export class RecipeListPage {
-  recipeItems: FirebaseListObservable<any>;
-  newItem = '';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public firebaseProvider: FirebaseProvider) {
-    this.recipeItems = this.firebaseProvider.getRecipeItems();
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RecipeListPage');
   }
 
-  navigateAddRecipe() {
+  navigateAddRecipe(){
     this.navCtrl.push(AddRecipePage);
   }
 
-  addItem() {
-    this.firebaseProvider.addItem(this.newItem);
-  }
-    removeItem(id) {
-      this.firebaseProvider.removeItem(id);
-    }
-
-  }
-
+}
