@@ -20,10 +20,16 @@
         <ion-list>
           <ion-item>
             <ion-label floating>Recipe Name</ion-label>
-            <ion-input type="text" ngModel name="recipeName" required></ion-input>
+            <ion-input type="text" [(ngModel)]="recipeName" name="recipeName" required></ion-input>
           </ion-item>
           <ion-item>
             <button ion-button full type="submit" [disabled]="!f.valid">Save</button>
+          </ion-item>
+          <ion-item>
+            <button ion-button full value="send" (click)="addNewRecipe(this.recipeName)">Save Recipe Name</button>
+          </ion-item>
+          <ion-item>
+            <p>Please enter recipe name first than, add new stage to use bottom left button.</p>
           </ion-item>
         </ion-list>
       </ion-card>

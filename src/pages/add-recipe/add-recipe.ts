@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {AddStagePage} from "../add-stage/add-stage";
+import {Recipe} from "../../Objects/Recipe";
+import {NgForm} from "@angular/forms";
 
 /**
  * Generated class for the AddRecipePage page.
@@ -16,7 +18,9 @@ import {AddStagePage} from "../add-stage/add-stage";
 })
 export class AddRecipePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  private recipeObject:Recipe = null;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams , private  alert:AlertController) {
   }
 
   ionViewDidLoad() {
@@ -26,5 +30,23 @@ export class AddRecipePage {
   navigateAddStage(){
     this.navCtrl.push(AddStagePage);
   }
+
+  addNewRecipe(recipeTitle:string){
+
+    this.recipeObject= new Recipe(recipeTitle);
+    const alert = this.alert.create({
+      title:"Saved",
+      message:"Recipe Name Saved Successfully",
+      buttons:["Understand"]
+    });
+    alert.present()
+
+  }
+
+  saveRecipe(form:NgForm){
+
+
+  }
+
 
 }

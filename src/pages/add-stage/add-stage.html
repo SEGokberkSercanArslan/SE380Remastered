@@ -16,7 +16,7 @@
 <ion-content padding>
   <body class="AddStageBody">
     <ion-card class="AddStageCard">
-      <form #f="ngForm"> <!--(ngSubmit) i yazmayı unutma-->
+      <form #f="ngForm" (ngSubmit)="addNewStage(f)"> <!--(ngSubmit) i yazmayı unutma-->
         <ion-list>
           <ion-item>
             <ion-label floating>Stage Title</ion-label>

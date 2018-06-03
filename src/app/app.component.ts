@@ -7,6 +7,7 @@ import firebase from 'firebase';
 import {LogInPage} from "../pages/log-in/log-in";
 import {TabsPage} from "../pages/tabs/tabs";
 import {AddStagePage} from "../pages/add-stage/add-stage";
+import {AddRecipePage} from "../pages/add-recipe/add-recipe";
 
 
 @Component({
@@ -15,7 +16,7 @@ import {AddStagePage} from "../pages/add-stage/add-stage";
 
 
 export class MyApp {
-  rootPage:any = AddStagePage;
+  rootPage:any = AddRecipePage;
   isAuthenticated = false;
   @ViewChild('nav') nav:NavController;
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
