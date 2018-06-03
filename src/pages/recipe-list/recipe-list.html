@@ -1,4 +1,9 @@
+<!--
+  Generated template for the RecipeListPage page.
 
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
 <ion-header>
 
   <ion-navbar>
@@ -9,27 +14,14 @@
 
 
 <ion-content padding>
-
   <body>
 
-  <ion-list>
-
-    <ion-item *ngFor="let recipe of recipes">
-      {{recipe.title}}
-    </ion-item>
-
-  </ion-list>
-
   </body>
-
   <ion-fab bottom right #fab>
-
-    <ion-buttons end>
-      <button ion-button icon-only (click)="navigateAddRecipe()">
-        <ion-icon name="add"></ion-icon>
-      </button>
-    </ion-buttons>
-
+    <button ion-fab><ion-icon name="ios-arrow-dropup"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab (click)="navigateAddRecipe()"><ion-icon name="ios-add-circle-outline"></ion-icon></button>
+      <button ion-fab><ion-icon name="ios-trash-outline"></ion-icon></button>
+    </ion-fab-list>
   </ion-fab>
-
 </ion-content>

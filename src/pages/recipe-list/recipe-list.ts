@@ -1,7 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {AddRecipePage} from "../add-recipe/add-recipe";
-import {RecipesService} from "../../Service/recipes.service";
+
+/**
+ * Generated class for the RecipeListPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
 @IonicPage()
 @Component({
@@ -9,19 +15,12 @@ import {RecipesService} from "../../Service/recipes.service";
   templateUrl: 'recipe-list.html',
 })
 export class RecipeListPage {
-recipes: {title: string} [] = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private recipesService : RecipesService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-/**
   ionViewDidLoad() {
     console.log('ionViewDidLoad RecipeListPage');
-  }
- */
-
-  ionViewWillEnter(){
-    this.recipes = this.recipesService.getRecipes();
   }
 
   navigateAddRecipe(){

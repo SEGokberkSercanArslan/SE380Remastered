@@ -3,7 +3,7 @@ import {Stage} from "./Stage";
 export class Recipe{
 
   public stageArray:Stage[] = [];
-  public recipeTitle:string;
+  private recipeTitle:string;
 
   constructor(recipeTitle:string){
     this.recipeTitle=recipeTitle;

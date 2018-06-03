@@ -3,7 +3,13 @@ import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angula
 import {AddStagePage} from "../add-stage/add-stage";
 import {Recipe} from "../../Objects/Recipe";
 import {NgForm} from "@angular/forms";
-import {RecipesService} from "../../Service/recipes.service";
+
+/**
+ * Generated class for the AddRecipePage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
 @IonicPage()
 @Component({
@@ -14,7 +20,7 @@ export class AddRecipePage {
 
   private recipeObject:Recipe = null;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams , private  alert:AlertController, private recipesService: RecipesService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams , private  alert:AlertController) {
   }
 
   ionViewDidLoad() {
@@ -24,7 +30,7 @@ export class AddRecipePage {
   navigateAddStage(){
     this.navCtrl.push(AddStagePage,{recipe:this.recipeObject});
   }
-/*
+
   addNewRecipe(strTitle:string){
 
     this.recipeObject= new Recipe(strTitle);
@@ -47,12 +53,6 @@ export class AddRecipePage {
     alert.present();
     this.navCtrl.pop();
     this.recipeObject=null;
-  }
-  */
-
-  onAddRecipe(value: {title: string}) {
-    this.recipesService.addRecipe(value);
-    this.navCtrl.pop();
   }
 
 }
