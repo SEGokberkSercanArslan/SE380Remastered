@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component, OnInit} from '@angular/core';
+import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {NgForm} from "@angular/forms";
+import {Recipe} from "../../Objects/Recipe";
+import {Stage} from "../../Objects/Stage";
 
 /**
  * Generated class for the AddStagePage page.
@@ -14,9 +16,11 @@ import {NgForm} from "@angular/forms";
   selector: 'page-add-stage',
   templateUrl: 'add-stage.html',
 })
-export class AddStagePage {
+export class AddStagePage implements OnInit{
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  stageRecipeObject:Recipe = null;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private alert:AlertController) {
   }
 
   ionViewDidLoad() {
@@ -24,8 +28,23 @@ export class AddStagePage {
   }
 
   addNewStage(form:NgForm){
-    console.log(form);
-    console.log(form.value.hour);
+    this.stageRecipeObject.addStage(new Stage(<string>form.value.stageTitle,<string>form.value.procedure,<string>form.value.hour,<string>form.value.minute));
+    //console.log(form.value.stageTitle);
+    //console.log(form.value.procedure);
+    //console.log(form.value.hour);
+    //console.log(form.value.minute);
+    const alert = this.alert.create({
+      title:"Save",
+      message:"Stage Saved Successfully",
+      buttons:["Understand"]
+    });
+    alert.present();
+    this.navCtrl.pop();
+  }
+
+  ngOnInit(): void {
+    this.stageRecipeObject = this.navParams.get('recipe')
+    //console.log(this.recipeObject == null);
   }
 
 }

@@ -28,12 +28,12 @@ export class AddRecipePage {
   }
 
   navigateAddStage(){
-    this.navCtrl.push(AddStagePage);
+    this.navCtrl.push(AddStagePage,{recipe:this.recipeObject});
   }
 
-  addNewRecipe(recipeTitle:string){
+  addNewRecipe(strTitle:string){
 
-    this.recipeObject= new Recipe(recipeTitle);
+    this.recipeObject= new Recipe(strTitle);
     const alert = this.alert.create({
       title:"Saved",
       message:"Recipe Name Saved Successfully",
