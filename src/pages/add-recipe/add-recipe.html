@@ -15,7 +15,6 @@
 
 <ion-content padding>
   <body>
-    <form #f="ngForm"> <!--(ngSubmit) i yazmayı unutma-->
       <ion-card>
         <ion-list>
           <ion-item>
@@ -23,7 +22,7 @@
             <ion-input type="text" [(ngModel)]="recipeName" name="recipeName" required></ion-input>
           </ion-item>
           <ion-item>
-            <button ion-button full type="submit" [disabled]="!f.valid">Save</button>
+            <button ion-button full (click)="saveRecipe()">Save</button>
           </ion-item>
           <ion-item>
             <button ion-button full value="send" (click)="addNewRecipe(this.recipeName)">Save Recipe Name</button>
@@ -33,7 +32,6 @@
           </ion-item>
         </ion-list>
       </ion-card>
-    </form>
   </body>
   <ion-fab bottom right #fab>
     <button ion-fab><ion-icon name="ios-arrow-dropup"></ion-icon></button>

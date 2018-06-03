@@ -43,10 +43,16 @@ export class AddRecipePage {
 
   }
 
-  saveRecipe(form:NgForm){
-
-
+  saveRecipe(){
+    //Database e objeyi gönder
+    const alert = this.alert.create({
+      title:"Recipe Saved",
+      message:"Recipe Saved Successfully",
+      buttons:["Understand"]
+    });
+    alert.present();
+    this.navCtrl.pop();
+    this.recipeObject=null;
   }
-
 
 }
