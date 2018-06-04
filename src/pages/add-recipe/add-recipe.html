@@ -35,7 +35,8 @@
       <ion-list>
         <ion-item *ngFor="let recipe of recipeObject">
           <ion-item *ngFor="let stage of recipe.stageArray">
-            <h2>{{stage.stageTitle}}</h2>
+            <h2 text-center>{{stage.stageTitle}}</h2>
+            <p>{{stage.procedure}}</p>
           </ion-item>
         </ion-item>
       </ion-list>
