@@ -15,6 +15,14 @@
 
 <ion-content padding>
   <body>
+    <ion-list *ngFor="let recipe of recipes">
+      <ion-item>
+        <ion-card>
+          <h2 text-center>{{recipe.recipeTitle}}</h2>
+          <button ion-button clear>Press for going to details</button>
+        </ion-card>
+      </ion-item>
+    </ion-list>
 
   </body>
   <ion-fab bottom right #fab>

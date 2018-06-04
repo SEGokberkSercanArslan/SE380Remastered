@@ -6,7 +6,7 @@ import {Injectable} from "@angular/core";
 @Injectable()
 export class RecipeStorageService{
 
-  private recipes:Recipe[]=[];
+  public recipes:Recipe[]=[];
 
   constructor(private storage:Storage){
 
@@ -20,7 +20,8 @@ export class RecipeStorageService{
         this.recipes.splice(this.recipes.indexOf(recipe),1);
       });
   }
-  
+
+
   getRecipeFromStorage(){
     return this.recipes.slice();
   }
