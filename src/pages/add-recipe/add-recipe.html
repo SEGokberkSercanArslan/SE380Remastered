@@ -32,6 +32,13 @@
           </ion-item>
         </ion-list>
       </ion-card>
+      <ion-list>
+        <ion-item *ngFor="let recipe of recipeObject">
+          <ion-item *ngFor="let stage of recipe.stageArray">
+            <h2>{{stage.stageTitle}}</h2>
+          </ion-item>
+        </ion-item>
+      </ion-list>
   </body>
   <ion-fab bottom right #fab>
     <button ion-fab><ion-icon name="ios-arrow-dropup"></ion-icon></button>

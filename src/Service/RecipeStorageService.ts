@@ -20,7 +20,7 @@ export class RecipeStorageService{
         this.recipes.splice(this.recipes.indexOf(recipe),1);
       });
   }
-
+  
   getRecipeFromStorage(){
     return this.recipes.slice();
   }

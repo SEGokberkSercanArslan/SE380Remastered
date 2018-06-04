@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {AddRecipePage} from "../add-recipe/add-recipe";
+import {RecipeStorageService} from "../../Service/RecipeStorageService";
 
 /**
  * Generated class for the RecipeListPage page.
@@ -16,7 +17,7 @@ import {AddRecipePage} from "../add-recipe/add-recipe";
 })
 export class RecipeListPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private storage:RecipeStorageService) {
   }
 
   ionViewDidLoad() {

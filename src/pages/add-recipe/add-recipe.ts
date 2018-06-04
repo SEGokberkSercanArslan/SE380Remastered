@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {AddStagePage} from "../add-stage/add-stage";
 import {Recipe} from "../../Objects/Recipe";
-import {NgForm} from "@angular/forms";
+import {RecipeStorageService} from "../../Service/RecipeStorageService";
 
 /**
  * Generated class for the AddRecipePage page.
@@ -18,9 +18,9 @@ import {NgForm} from "@angular/forms";
 })
 export class AddRecipePage {
 
-  private recipeObject:Recipe = null;
+  private recipeObject:Recipe[] = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams , private  alert:AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams , private  alert:AlertController, private storage:RecipeStorageService) {
   }
 
   ionViewDidLoad() {
@@ -28,12 +28,12 @@ export class AddRecipePage {
   }
 
   navigateAddStage(){
-    this.navCtrl.push(AddStagePage,{recipe:this.recipeObject});
+    this.navCtrl.push(AddStagePage,{recipe:this.recipeObject[0]});
   }
 
   addNewRecipe(strTitle:string){
 
-    this.recipeObject= new Recipe(strTitle);
+    this.recipeObject.push(new Recipe(strTitle));
     const alert = this.alert.create({
       title:"Saved",
       message:"Recipe Name Saved Successfully",
@@ -45,6 +45,7 @@ export class AddRecipePage {
 
   saveRecipe(){
     //Database e objeyi gönder
+    this.storage.addRecipeToStorage(this.recipeObject[0]);
     const alert = this.alert.create({
       title:"Recipe Saved",
       message:"Recipe Saved Successfully",
@@ -52,7 +53,7 @@ export class AddRecipePage {
     });
     alert.present();
     this.navCtrl.pop();
-    this.recipeObject=null;
+    this.recipeObject = null;
   }
 
 }
