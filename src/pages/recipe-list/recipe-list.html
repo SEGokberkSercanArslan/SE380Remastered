@@ -19,7 +19,14 @@
       <ion-item>
         <ion-card>
           <h2 text-center>{{recipe.recipeTitle}}</h2>
-          <button ion-button clear>Press for going to details</button>
+          <ion-row>
+            <ion-col>
+              <button ion-button clear left>Delete</button>
+            </ion-col>
+            <ion-col>
+              <button ion-button clear right>Details</button>
+            </ion-col>
+          </ion-row>
         </ion-card>
       </ion-item>
     </ion-list>
