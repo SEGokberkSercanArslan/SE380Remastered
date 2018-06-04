@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
+
 
 /**
  * Generated class for the HomePage page.
@@ -14,8 +16,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'home.html',
 })
 export class HomePage {
+url: string;
+  constructor(public navCtrl: NavController, public navParams: NavParams, private inAppBrowser: InAppBrowser) {
+  }
+  openKitchen(url: string){
+    const browser = this.inAppBrowser.create(url,`_self`);
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
   }
 
   ionViewDidLoad() {

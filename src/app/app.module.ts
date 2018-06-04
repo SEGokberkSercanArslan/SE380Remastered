@@ -16,7 +16,7 @@ import {AddStagePage} from "../pages/add-stage/add-stage";
 import {AddRecipePage} from "../pages/add-recipe/add-recipe";
 import {AuthService} from "../Service/auth";
 import {RecipeStorageService} from "../Service/RecipeStorageService";
-
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @NgModule({
   declarations: [
@@ -55,6 +55,7 @@ import {RecipeStorageService} from "../Service/RecipeStorageService";
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
     RecipeStorageService,
+    InAppBrowser,
   ]
 })
 export class AppModule {}

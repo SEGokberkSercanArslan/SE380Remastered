@@ -7,12 +7,32 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title class="HomeTitle">Home</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="HomeContentBox">
+  <body class="HomeBody">
+  <ion-card class="HomeCardContent">
+    <ion-label id="News"><b>News about the Cook Organizer App will be posted here!</b></ion-label>
+    <ion-list>
 
+    </ion-list>
+  </ion-card>
+
+  <ion-card class="LatestCardContent">
+      <ion-list>
+        <ion-item>
+          <ion-label id="LatestR"><b>Latest Recipes and More!</b></ion-label>
+        </ion-item>
+        <ion-item>
+          <div class="center">
+          <button padding ion-button name="Click" (click)="openKitchen('https://kitchenstories.io/en')"> Click to View</button>
+          </div>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+  </body>
 </ion-content>
