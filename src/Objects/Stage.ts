@@ -8,10 +8,9 @@ export class Stage{
     this.minute=minute;
   }
 
-  private stageTitle:string;
-  private procedure:string;
-  private hour:string;
-  private minute:string;
-
+  public stageTitle:string;
+  public procedure:string;
+  public hour:string;
+  public minute:string;
 
 }

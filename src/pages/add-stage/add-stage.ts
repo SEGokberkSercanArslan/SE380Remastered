@@ -29,6 +29,10 @@ export class AddStagePage implements OnInit{
 
   addNewStage(form:NgForm){
     this.stageRecipeObject.addStage(new Stage(<string>form.value.stageTitle,<string>form.value.procedure,<string>form.value.hour,<string>form.value.minute));
+    //console.log(form.value.stageTitle);
+    //console.log(form.value.procedure);
+    //console.log(form.value.hour);
+    //console.log(form.value.minute);
     const alert = this.alert.create({
       title:"Save",
       message:"Stage Saved Successfully",

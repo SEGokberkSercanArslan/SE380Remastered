@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Add Recipe</ion-title>
+    <ion-title text-center>Add Recipe</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,37 +15,48 @@
 
 <ion-content padding>
   <body>
+    <form #f="ngForm">
       <ion-card>
         <ion-list>
           <ion-item>
             <ion-label floating>Recipe Name</ion-label>
-            <ion-input type="text" [(ngModel)]="recipeName" name="recipeName" required></ion-input>
+            <ion-input type="text" name="recipeName" required></ion-input>
           </ion-item>
           <ion-item>
             <button ion-button full (click)="saveRecipe()">Save</button>
-          </ion-item>
-          <ion-item>
-            <button ion-button full value="send" (click)="addNewRecipe(this.recipeName)">Save Recipe Name</button>
           </ion-item>
           <ion-item>
             <p>Please enter recipe name first than, add new stage to use bottom left button.</p>
           </ion-item>
         </ion-list>
       </ion-card>
-      <ion-list>
-        <ion-item *ngFor="let recipe of recipeObject">
-          <ion-item *ngFor="let stage of recipe.stageArray">
+    </form>
+      <div *ngIf="recipeObject != null">
+        <ion-card *ngFor="let stage of recipeObject.stageArray">
+          <ion-card-title>
             <h2 text-center>{{stage.stageTitle}}</h2>
-            <p>{{stage.procedure}}</p>
-          </ion-item>
-        </ion-item>
-      </ion-list>
+          </ion-card-title>
+          <ion-card-content>
+            <ion-list>
+              <ion-item>
+                <p>{{stage.procedure}}</p>
+              </ion-item>
+              <ion-item>
+                <ion-row>
+                  <ion-col>
+                    <button ion-button clear left>Delete Stage</button>
+                  </ion-col>
+                </ion-row>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </div>
   </body>
   <ion-fab bottom right #fab>
     <button ion-fab><ion-icon name="ios-arrow-dropup"></ion-icon></button>
     <ion-fab-list side="top">
-      <button ion-fab (click)="navigateAddStage()"><ion-icon name="ios-add-circle-outline"></ion-icon></button>
-      <button ion-fab><ion-icon name="ios-trash-outline"></ion-icon></button>
+      <button ion-fab (click)="navigateAddStage()" [disabled]="!f.valid"><ion-icon name="ios-add-circle-outline"></ion-icon></button>
     </ion-fab-list>
   </ion-fab>
 </ion-content>

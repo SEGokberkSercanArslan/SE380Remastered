@@ -26,7 +26,7 @@
             <ion-label>Procedure</ion-label>
           </ion-item>
           <ion-item id="textArea">
-            <ion-textarea name="procedure" ngModel required id="procedureInput" cols="30" rows="10"></ion-textarea>
+            <ion-textarea name="procedure" ngModel name="procedureInput" required></ion-textarea>
           </ion-item>
           <ion-item>
             <ion-label>Hour</ion-label>
@@ -121,9 +121,6 @@
               <ion-option>59</ion-option>
               <ion-option>60</ion-option>
             </ion-select>
-          </ion-item>
-          <ion-item>
-            <button ion-button="" full>Take Picture</button>
           </ion-item>
           <ion-item>
             <button ion-button full type="submit" [disabled]="!f.valid">Save Stage</button>

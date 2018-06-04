@@ -18,11 +18,10 @@ import {Recipe} from "../../Objects/Recipe";
 })
 export class RecipeListPage {
 
+  private recipeArray:Recipe[] = this.storage.getRecipeFromStorage();
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private storage:RecipeStorageService) {
   }
-
-  private  recipes:Recipe[] = this.storage.recipes;
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RecipeListPage');
