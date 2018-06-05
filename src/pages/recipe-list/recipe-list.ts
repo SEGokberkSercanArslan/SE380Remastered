@@ -30,7 +30,9 @@ export class RecipeListPage {
   }
 
   addRecipeToFavorite(recipe:Recipe) {
-    this.storage.addRecipeToFavoriteStorage(recipe);
+    if (this.storage.getFavoriteRecipeFromStorage().indexOf(recipe) == -1){
+      this.storage.addRecipeToFavoriteStorage(recipe);
+    }
   }
 
   showRecipeDetails(recipe:Recipe){
