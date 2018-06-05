@@ -33,6 +33,17 @@ export class RecipeStorageService{
   }
 
 
+  deleteRecipe(recipe:Recipe){
+    let index = this.recipes.indexOf(recipe);
+    this.recipes.splice(index,1);
+  }
+
+  deleteFavorite(favorite:Recipe){
+    let index = this.favorite.indexOf(favorite);
+    this.favorite.splice(index,1);
+  }
+
+
   getRecipeFromStorage(){
     return this.recipes;
   }

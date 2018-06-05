@@ -16,7 +16,7 @@ import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser'
   templateUrl: 'home.html',
 })
 export class HomePage {
-url: string;
+  url: string;
   constructor(public navCtrl: NavController, public navParams: NavParams, private inAppBrowser: InAppBrowser) {
   }
   openKitchen(url: string){
