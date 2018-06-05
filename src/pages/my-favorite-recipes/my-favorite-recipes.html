@@ -14,25 +14,17 @@
 
 
 <ion-content padding>
-  <ion-card *ngFor="let recipe of favorite">
+  <ion-card *ngFor="let frecipe of favorite">
     <ion-card-title>
-      <h2 text-center>{{recipe.recipeTitle}}</h2>
+      <h2 text-center>{{frecipe.recipeTitle}}</h2>
     </ion-card-title>
-    <ion-card-content *ngFor="let stage of recipe.stageArray">
-      <ion-card>
-        <ion-card-title>
-          <h2 text-center>{{stage.stageTitle}}</h2>
-        </ion-card-title>
-        <ion-card-content>
-          <ion-row>
-            <p>{{stage.procedure}}</p>
-          </ion-row>
-          <ion-row>
-            <ion-col left><p>Hour : {{stage.hour}}</p></ion-col>
-            <ion-col right><p>Minute : {{stage.minute}}</p></ion-col>
-          </ion-row>
-        </ion-card-content>
-      </ion-card>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col left><button ion-button clear (click)="showRecipeDetails(frecipe)">Show Details</button></ion-col>
+          <ion-col right><button ion-button clear>Delete Favorites</button></ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-card-content>
   </ion-card>
   <ion-scroll scrollY="true">

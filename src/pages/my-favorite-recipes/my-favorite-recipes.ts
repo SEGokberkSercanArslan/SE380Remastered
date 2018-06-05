@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {RecipeStorageService} from "../../Service/RecipeStorageService";
 import {Recipe} from "../../Objects/Recipe";
+import {ShowRecipePage} from "../show-recipe/show-recipe";
 
 /**
  * Generated class for the MyFavoriteRecipesPage page.
@@ -24,6 +25,10 @@ export class MyFavoriteRecipesPage implements OnInit{
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyFavoriteRecipesPage');
+  }
+
+  showRecipeDetails(recipe:Recipe){
+    this.navCtrl.push(ShowRecipePage,{recipe:recipe})
   }
 
   ngOnInit(): void {
