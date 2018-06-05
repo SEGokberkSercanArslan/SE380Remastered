@@ -4,6 +4,7 @@ import {AddRecipePage} from "../add-recipe/add-recipe";
 import {RecipeStorageService} from "../../Service/RecipeStorageService";
 import {Recipe} from "../../Objects/Recipe";
 import {ShowRecipePage} from "../show-recipe/show-recipe";
+import {EditRecipePage} from "../edit-recipe/edit-recipe";
 
 /**
  * Generated class for the RecipeListPage page.
@@ -38,6 +39,10 @@ export class RecipeListPage {
 
   navigateAddRecipe(){
     this.navCtrl.push(AddRecipePage);
+  }
+
+  editRecipe(recipe:Recipe){
+    this.navCtrl.push(EditRecipePage,{recipe:recipe});
   }
 
 }

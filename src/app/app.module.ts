@@ -8,7 +8,6 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import {LogInPage} from "../pages/log-in/log-in";
 import {SignUpPage} from "../pages/sign-up/sign-up";
-import {ForgetPasswordPage} from "../pages/forget-password/forget-password";
 import {TabsPage} from "../pages/tabs/tabs";
 import {MyFavoriteRecipesPage} from "../pages/my-favorite-recipes/my-favorite-recipes";
 import {RecipeListPage} from "../pages/recipe-list/recipe-list";
@@ -18,6 +17,7 @@ import {AuthService} from "../Service/auth";
 import {RecipeStorageService} from "../Service/RecipeStorageService";
 import {ShowRecipePage} from "../pages/show-recipe/show-recipe";
 import {InAppBrowser} from "@ionic-native/in-app-browser";
+import {EditRecipePage} from "../pages/edit-recipe/edit-recipe";
 
 
 @NgModule({
@@ -26,13 +26,13 @@ import {InAppBrowser} from "@ionic-native/in-app-browser";
     HomePage,
     LogInPage,
     SignUpPage,
-    ForgetPasswordPage,
     TabsPage,
     MyFavoriteRecipesPage,
     RecipeListPage,
     AddStagePage,
     AddRecipePage,
-    ShowRecipePage
+    ShowRecipePage,
+    EditRecipePage
   ],
   imports: [
     BrowserModule,
@@ -45,13 +45,13 @@ import {InAppBrowser} from "@ionic-native/in-app-browser";
     HomePage,
     LogInPage,
     SignUpPage,
-    ForgetPasswordPage,
     TabsPage,
     MyFavoriteRecipesPage,
     RecipeListPage,
     AddStagePage,
     AddRecipePage,
-    ShowRecipePage
+    ShowRecipePage,
+    EditRecipePage
   ],
   providers: [
     StatusBar,

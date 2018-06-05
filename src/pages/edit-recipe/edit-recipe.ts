@@ -1,27 +1,25 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
-import {AddStagePage} from "../add-stage/add-stage";
-import {Recipe} from "../../Objects/Recipe";
-import {NgForm} from "@angular/forms";
 import {RecipeStorageService} from "../../Service/RecipeStorageService";
 import {Stage} from "../../Objects/Stage";
+import {AddStagePage} from "../add-stage/add-stage";
+import {Recipe} from "../../Objects/Recipe";
 
 /**
- * Generated class for the AddRecipePage page.
+ * Generated class for the EditRecipePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
- *
  */
 
 @IonicPage()
 @Component({
-  selector: 'page-add-recipe',
-  templateUrl: 'add-recipe.html',
+  selector: 'page-edit-recipe',
+  templateUrl: 'edit-recipe.html',
 })
-export class AddRecipePage {
+export class EditRecipePage implements OnInit{
 
-  private recipeObject:Recipe = null;
+  private recipeObject:Recipe;
 
   constructor(public navCtrl: NavController, public navParams: NavParams , private  alert:AlertController,private storage:RecipeStorageService) {
   }
@@ -47,20 +45,22 @@ export class AddRecipePage {
   }
   saveRecipe(){
     //Database e objeyi gönder
-      this.storage.addRecipeToStorage(this.recipeObject);
-      const alert = this.alert.create({
-        title:"Recipe Saved",
-        message:"Recipe Saved Successfully",
-        buttons:["Understand"]
-      });
-      alert.present();
-      this.navCtrl.pop();
-      this.recipeObject=null;
-    }
-
+    const alert = this.alert.create({
+      title:"Recipe Saved",
+      message:"Recipe Saved Successfully",
+      buttons:["Understand"]
+    });
+    alert.present();
+    this.navCtrl.pop();
+    this.recipeObject=null;
+  }
 
   addNewStageToAddRecipePageObject(stage:Stage){
     this.recipeObject.addStage(stage);
+  }
+
+  ngOnInit(): void {
+    this.recipeObject = this.navParams.get('recipe');
   }
 
 }

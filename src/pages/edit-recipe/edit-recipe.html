@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>Add Recipe</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form #f="ngForm">
+    <ion-card class="addRecipeCard">
+      <ion-list>
+        <ion-item>
+          <button  ion-button full (click)="saveRecipe()" [disabled]="!f.valid">Save</button>
+        </ion-item>
+        <ion-item>
+          <p>Please enter recipe name first than, add new stage to use bottom left button.</p>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+  </form>
+  <div *ngIf="recipeObject != null" class="stageCardDiv">
+    <ion-card *ngFor="let stage of recipeObject.stageArray" class="stageCard">
+      <ion-card-title>
+        <h2 text-center>{{stage.stageTitle}}</h2>
+      </ion-card-title>
+      <ion-list>
+        <ion-item>
+          <p>{{stage.procedure}}</p>
+        </ion-item>
+        <ion-item>
+          <ion-row>
+            <ion-col>
+              <button ion-button clear left (click)="recipeObject.deleteStage(stage)">Delete Stage</button>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+  </div>
+  <ion-scroll scrollY="true">
+
+  </ion-scroll>
+  <ion-fab bottom right #fab>
+    <button ion-fab><ion-icon name="ios-arrow-dropup"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab (click)="navigateAddStage(this.recipeName)" [disabled]="!f.valid"><ion-icon name="ios-add-circle-outline"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

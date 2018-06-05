@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AlertController, IonicPage, LoadingController, NavController, NavParams} from 'ionic-angular';
 import {SignUpPage} from "../sign-up/sign-up";
-import {ForgetPasswordPage} from "../forget-password/forget-password";
 import {TabsPage} from "../tabs/tabs";
 import {AuthService} from "../../Service/auth";
 import {NgForm} from "@angular/forms";
@@ -37,9 +36,6 @@ export class LogInPage implements OnInit{
     this.navCtrl.push(SignUpPage);
   }
 
-  navigateForgetPasswordPage(){
-    this.navCtrl.push(ForgetPasswordPage);
-  }
 
   onSignin(form:NgForm){
     const loading = this.loadingCtrl.create({
