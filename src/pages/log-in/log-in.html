@@ -17,7 +17,7 @@
 
   <body class="LoginBody">
   <ion-card class="LoginCardContent">
-    <form #f="ngForm" (ngSubmit)="onSignin(f)">
+    <form #f="ngForm">
       <ion-list>
         <ion-item>
           <ion-label id="cookorganizer"><b>Cook Organizer App</b></ion-label>
@@ -31,7 +31,7 @@
           <ion-input type="password" ngModel name="password" [minlength]="6" required></ion-input>
         </ion-item>
         <ion-item>
-          <button ion-button="" type="submit" [disabled]="!f.valid" full>Log In</button>
+          <button ion-button="" type="submit" (click)="onSignin(f)" [disabled]="!f.valid" full>Log In</button>
         </ion-item>
         <ion-item>
           <ion-label id="orlabel"><b>OR</b></ion-label>
