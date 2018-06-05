@@ -17,6 +17,7 @@ import {AddRecipePage} from "../pages/add-recipe/add-recipe";
 import {AuthService} from "../Service/auth";
 import {RecipeStorageService} from "../Service/RecipeStorageService";
 import {ShowRecipePage} from "../pages/show-recipe/show-recipe";
+import {InAppBrowser} from "@ionic-native/in-app-browser";
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import {ShowRecipePage} from "../pages/show-recipe/show-recipe";
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
     RecipeStorageService,
+    InAppBrowser
   ]
 })
 export class AppModule {}
