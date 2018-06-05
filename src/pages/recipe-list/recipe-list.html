@@ -24,8 +24,10 @@
             <ion-row>
               <ion-col><button ion-button clear (click)="showRecipeDetails(recipe)"><ion-icon name="ios-document"></ion-icon>Show Details</button></ion-col>
               <ion-col><button ion-button clear (click)="addRecipeToFavorite(recipe)"><ion-icon name="ios-star"></ion-icon>Favorite Recipe</button></ion-col>
+              </ion-row>
+            <ion-row>
               <ion-col><button ion-button clear (click)="storage.deleteRecipe(recipe)"><ion-icon name="ios-trash-outline"></ion-icon>Delete Recipe</button></ion-col>
-              <ion-col><button ion-button clear (click)="editRecipe(recipe)">Edit Recipe</button></ion-col>
+              <ion-col><button ion-button clear (click)="editRecipe(recipe)"><ion-icon name="ios-build"></ion-icon>Edit Recipe</button></ion-col>
             </ion-row>
           </ion-grid>
         </ion-card-content>
