@@ -4,26 +4,24 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
 
+<ion-header>
   <ion-navbar>
     <ion-title text-center>Add Recipe</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
-  <body>
     <form #f="ngForm">
-      <ion-card>
+      <ion-card class="addRecipeCard">
         <ion-list>
           <ion-item>
             <ion-label floating>Recipe Name</ion-label>
-            <ion-input type="text" name="recipeName" required></ion-input>
+            <ion-input type="text" [(ngModel)]="recipeName" name="recipeName" required></ion-input>
           </ion-item>
           <ion-item>
-            <button ion-button full (click)="saveRecipe()">Save</button>
+            <button  ion-button full (click)="saveRecipe()" [disabled]="!f.valid">Save</button>
           </ion-item>
           <ion-item>
             <p>Please enter recipe name first than, add new stage to use bottom left button.</p>
@@ -31,12 +29,11 @@
         </ion-list>
       </ion-card>
     </form>
-      <div *ngIf="recipeObject != null">
-        <ion-card *ngFor="let stage of recipeObject.stageArray">
+      <div *ngIf="recipeObject != null" class="stageCardDiv">
+        <ion-card *ngFor="let stage of recipeObject.stageArray" class="stageCard">
           <ion-card-title>
             <h2 text-center>{{stage.stageTitle}}</h2>
           </ion-card-title>
-          <ion-card-content>
             <ion-list>
               <ion-item>
                 <p>{{stage.procedure}}</p>
@@ -49,14 +46,15 @@
                 </ion-row>
               </ion-item>
             </ion-list>
-          </ion-card-content>
         </ion-card>
       </div>
-  </body>
+  <ion-scroll scrollY="true">
+
+  </ion-scroll>
   <ion-fab bottom right #fab>
     <button ion-fab><ion-icon name="ios-arrow-dropup"></ion-icon></button>
     <ion-fab-list side="top">
-      <button ion-fab (click)="navigateAddStage()" [disabled]="!f.valid"><ion-icon name="ios-add-circle-outline"></ion-icon></button>
+      <button ion-fab (click)="navigateAddStage(this.recipeName)" [disabled]="!f.valid"><ion-icon name="ios-add-circle-outline"></ion-icon></button>
     </ion-fab-list>
   </ion-fab>
 </ion-content>

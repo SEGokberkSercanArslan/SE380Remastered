@@ -9,7 +9,7 @@ export class Recipe{
     this.recipeTitle=recipeTitle;
   }
 
-  addStage = function(stage:Stage){
+  addStage /*= function*/(stage:Stage){
     this.stageArray.push(stage);
   }
 

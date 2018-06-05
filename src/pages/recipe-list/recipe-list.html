@@ -14,21 +14,23 @@
 
 
 <ion-content padding>
-  <body>
-    <div *ngIf="recipeArray != null">
-      <ion-card *ngFor="let recipe of recipeArray">
+    <div *ngIf="recipeArray != null" class="recipeDiv">
+      <ion-card *ngFor="let recipe of recipeArray" class="recipeCard">
         <ion-card-title>
-          <h2>{{recipe.recipeTitle}}</h2>
+          <h2 text-center>{{recipe.recipeTitle}}</h2>
         </ion-card-title>
         <ion-card-content>
           <ion-row>
-            <ion-col right><button ion-button clear>Show Recipe</button></ion-col>
+            <ion-col right><button ion-button clear (click)="showRecipeDetails(recipe)">Show Details</button></ion-col>
+            <ion-col><button ion-button clear (click)="addRecipeToFavorite(recipe)">Favorite Recipe</button></ion-col>
             <ion-col left><button ion-button clear>Delete Recipe</button></ion-col>
           </ion-row>
         </ion-card-content>
       </ion-card>
     </div>
-  </body>
+  <ion-scroll scrollY="true">
+
+  </ion-scroll>
   <ion-fab bottom right #fab>
     <button ion-fab><ion-icon name="ios-arrow-dropup"></ion-icon></button>
     <ion-fab-list side="top">

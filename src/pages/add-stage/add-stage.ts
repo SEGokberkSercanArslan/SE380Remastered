@@ -3,6 +3,7 @@ import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angula
 import {NgForm} from "@angular/forms";
 import {Recipe} from "../../Objects/Recipe";
 import {Stage} from "../../Objects/Stage";
+import {AddRecipePage} from "../add-recipe/add-recipe";
 
 /**
  * Generated class for the AddStagePage page.
@@ -29,16 +30,18 @@ export class AddStagePage implements OnInit{
 
   addNewStage(form:NgForm){
     this.stageRecipeObject.addStage(new Stage(<string>form.value.stageTitle,<string>form.value.procedure,<string>form.value.hour,<string>form.value.minute));
-    //console.log(form.value.stageTitle);
-    //console.log(form.value.procedure);
-    //console.log(form.value.hour);
-    //console.log(form.value.minute);
+    //this.addRecipePage.addNewStageToAddRecipePageObject(new Stage(<string>form.value.stageTitle,<string>form.value.procedure,<string>form.value.hour,<string>form.value.minute));
+    console.log(form.value.stageTitle);
+    console.log(form.value.procedure);
+    console.log(form.value.hour);
+    console.log(form.value.minute);
     const alert = this.alert.create({
       title:"Save",
       message:"Stage Saved Successfully",
       buttons:["Understand"]
     });
     alert.present();
+    console.log("Add Stage Array Size: "+this.stageRecipeObject.stageArray.length);
     this.navCtrl.pop();
   }
 

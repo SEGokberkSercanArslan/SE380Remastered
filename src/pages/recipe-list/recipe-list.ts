@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {AddRecipePage} from "../add-recipe/add-recipe";
 import {RecipeStorageService} from "../../Service/RecipeStorageService";
 import {Recipe} from "../../Objects/Recipe";
+import {ShowRecipePage} from "../show-recipe/show-recipe";
 
 /**
  * Generated class for the RecipeListPage page.
@@ -25,6 +26,14 @@ export class RecipeListPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RecipeListPage');
+  }
+
+  addRecipeToFavorite(recipe:Recipe) {
+    this.storage.addRecipeToFavoriteStorage(recipe);
+  }
+
+  showRecipeDetails(recipe:Recipe){
+    this.navCtrl.push(ShowRecipePage,{recipe:recipe})
   }
 
   navigateAddRecipe(){

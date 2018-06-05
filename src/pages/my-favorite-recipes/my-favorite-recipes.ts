@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {RecipeStorageService} from "../../Service/RecipeStorageService";
+import {Recipe} from "../../Objects/Recipe";
 
 /**
  * Generated class for the MyFavoriteRecipesPage page.
@@ -13,13 +15,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-my-favorite-recipes',
   templateUrl: 'my-favorite-recipes.html',
 })
-export class MyFavoriteRecipesPage {
+export class MyFavoriteRecipesPage implements OnInit{
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  private favorite:Recipe[]= this.storage.getFavoriteRecipeFromStorage();
+
+  constructor(public navCtrl: NavController, public navParams: NavParams ,private storage:RecipeStorageService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyFavoriteRecipesPage');
+  }
+
+  ngOnInit(): void {
   }
 
 }
