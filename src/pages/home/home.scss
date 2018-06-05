@@ -1,3 +1,38 @@
 page-home {
 
 }
+
+.HomeTitle{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.HomeBody{
+  position: relative;
+  opacity: 0.75;
+}
+
+#Click {
+  margin-top: 20px;
+}
+
+.center{
+  text-align: center;
+}
+
+#News {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#LatestR {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
