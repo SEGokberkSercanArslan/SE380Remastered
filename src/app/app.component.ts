@@ -16,7 +16,7 @@ import {AddRecipePage} from "../pages/add-recipe/add-recipe";
 
 
 export class MyApp {
-  rootPage:any = TabsPage;
+  rootPage:any = LogInPage;
   isAuthenticated = false;
   @ViewChild('nav') nav:NavController;
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {

@@ -60,6 +60,7 @@ export class LogInPage implements OnInit{
 
   ngOnInit(): void {
     this.storageService.fetchRecipes();
+    this.storageService.fetchFavorite();
   }
 
 }
