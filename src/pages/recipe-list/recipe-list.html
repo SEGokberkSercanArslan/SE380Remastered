@@ -23,7 +23,7 @@
           <ion-row>
             <ion-col right><button ion-button clear (click)="showRecipeDetails(recipe)">Show Details</button></ion-col>
             <ion-col><button ion-button clear (click)="addRecipeToFavorite(recipe)">Favorite Recipe</button></ion-col>
-            <ion-col left><button ion-button clear>Delete Recipe</button></ion-col>
+            <ion-col left><button ion-button clear (click)="storage.deleteRecipe(recipe)">Delete Recipe</button></ion-col>
           </ion-row>
         </ion-card-content>
       </ion-card>

@@ -36,11 +36,21 @@ export class RecipeStorageService{
   deleteRecipe(recipe:Recipe){
     let index = this.recipes.indexOf(recipe);
     this.recipes.splice(index,1);
+    this.storage.set('recipes',this.recipes)
+      .then()
+      .catch( err => {
+        console.log(err);
+      });
   }
 
   deleteFavorite(favorite:Recipe){
     let index = this.favorite.indexOf(favorite);
     this.favorite.splice(index,1);
+    this.storage.set('favorite',this.favorite)
+      .then()
+      .catch( err => {
+        console.log(err);
+      });
   }
 
 

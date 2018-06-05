@@ -13,4 +13,9 @@ export class Recipe{
     this.stageArray.push(stage);
   }
 
+  deleteStage(stage:Stage){
+    let index = this.stageArray.indexOf(stage);
+    this.stageArray.splice(index,1);
+  }
+
 }
