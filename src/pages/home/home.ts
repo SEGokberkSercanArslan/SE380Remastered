@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
+import * as firebase from "firebase";
+import Auth = firebase.auth.Auth;
+import {AuthService} from "../../Service/auth";
+import {LogInPage} from "../log-in/log-in";
 
 
 /**
@@ -17,7 +21,7 @@ import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser'
 })
 export class HomePage {
   url: string;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private inAppBrowser: InAppBrowser) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private inAppBrowser: InAppBrowser,private auth:AuthService) {
   }
   openKitchen(url: string){
     const browser = this.inAppBrowser.create(url,`_self`);
@@ -27,6 +31,12 @@ export class HomePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
+  }
+
+  signOut(){
+    this.auth.logout();
+    this.navCtrl.setRoot(LogInPage);
+    this.navCtrl.popToRoot();
   }
 
 }
